@@ -1,0 +1,116 @@
+Failed to compile.
+
+Module not found: Error: Can't resolve '@mui/icons-material' in '/home/runner/workspace/src'
+assets by path static/js/*.js 10.7 MiB
+  asset static/js/bundle.js 10.7 MiB [emitted] (name: main) 1 related asset
+  asset static/js/node_modules_native-file-system-adapter_src_adapters_sandbox_js-node_modules_native-file-syst-ead6b0.chunk.js 11.6 KiB [emitted] 1 related asset
+  asset static/js/node_modules_native-file-system-adapter_src_adapters_downloader_js.chunk.js 10.6 KiB [emitted] 1 related asset
+  asset static/js/node_modules_native-file-system-adapter_src_adapters_memory_js.chunk.js 7.2 KiB [emitted] 1 related asset
+  asset static/js/node_modules_web-vitals_dist_web-vitals_js.chunk.js 6.92 KiB [emitted] 1 related asset
+  asset static/js/node_modules_native-file-system-adapter_src_adapters_sandbox_js.chunk.js 6.87 KiB [emitted] 1 related asset
+  asset static/js/node_modules_native-file-system-adapter_src_util_js.chunk.js 4.92 KiB [emitted] 1 related asset
+asset index.html 2.81 KiB [emitted]
+asset asset-manifest.json 2.33 KiB [emitted]
+cached modules 9.71 MiB [cached] 1175 modules
+runtime modules 32.8 KiB 18 modules
+javascript modules 113 KiB
+  modules by path ./node_modules/ 72.4 KiB
+    modules by path ./node_modules/react-bootstrap/esm/*.js 10.4 KiB 6 modules
+    modules by path ./node_modules/@mui/ 61.4 KiB
+      modules by path ./node_modules/@mui/base/SliderUnstyled/*.js 37.1 KiB 4 modules
+      + 2 modules
+    ./node_modules/dom-helpers/esm/scrollbarSize.js 587 bytes [code generated]
+  built modules 40.4 KiB [built]
+    modules by path ./src/*.js 35.1 KiB 3 modules
+    modules by path ./src/*.css 5.36 KiB
+      ./src/VideoPlayer.css 2.74 KiB [built] [code generated]
+      ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/VideoPlayer.css 2.62 KiB [built] [code generated]
+
+WARNING in src/App.js
+  Line 1:10:    'chrome' is defined but never used             no-unused-vars
+  Line 4:10:    'Button' is defined but never used             no-unused-vars
+  Line 4:31:    'Dialog' is defined but never used             no-unused-vars
+  Line 4:39:    'DialogActions' is defined but never used      no-unused-vars
+  Line 4:54:    'DialogContent' is defined but never used      no-unused-vars
+  Line 4:69:    'DialogContentText' is defined but never used  no-unused-vars
+  Line 4:88:    'DialogTitle' is defined but never used        no-unused-vars
+  Line 131:15:  'parent' is assigned a value but never used    no-unused-vars
+
+src/VideoPlayer.js
+  Line 3:10:   'Button' is defined but never used               no-unused-vars
+  Line 3:18:   'Card' is defined but never used                 no-unused-vars
+  Line 3:31:   'ProgressBar' is defined but never used          no-unused-vars
+  Line 15:12:  'quality' is assigned a value but never used     no-unused-vars
+  Line 15:21:  'setQuality' is assigned a value but never used  no-unused-vars
+
+ERROR in ./src/VideoPlayer.js 9:0-87
+Module not found: Error: Can't resolve '@mui/icons-material' in '/home/runner/workspace/src'
+resolve '@mui/icons-material' in '/home/runner/workspace/src'
+  Parsed request is a module
+  using description file: /home/runner/workspace/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/runner/workspace/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/runner/workspace/node_modules
+        single file module
+          using description file: /home/runner/workspace/package.json (relative path: ./node_modules/@mui/icons-material)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material doesn't exist
+            .web.mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.mjs doesn't exist
+            .mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.mjs doesn't exist
+            .web.js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.js doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.js doesn't exist
+            .json
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.json doesn't exist
+            .web.jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.jsx doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.jsx doesn't exist
+        /home/runner/workspace/node_modules/@mui/icons-material doesn't exist
+      /home/runner/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+      looking for modules in /home/runner/workspace/node_modules
+        single file module
+          using description file: /home/runner/workspace/package.json (relative path: ./node_modules/@mui/icons-material)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material doesn't exist
+            .web.mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.mjs doesn't exist
+            .mjs
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.mjs doesn't exist
+            .web.js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.js doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.js doesn't exist
+            .json
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.json doesn't exist
+            .web.jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.web.jsx doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/runner/workspace/node_modules/@mui/icons-material.jsx doesn't exist
+        /home/runner/workspace/node_modules/@mui/icons-material doesn't exist
+ @ ./src/App.js 22:0-40 627:35-46
+ @ ./src/index.js 8:0-24 24:32-35
+
+webpack 5.68.0 compiled with 1 error and 1 warning in 7808 ms

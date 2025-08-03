@@ -7,7 +7,7 @@ function formatDateString(dateString) {
     return date.toLocaleString();
 }
 
-export default function buildColumns(fileManager, currentAction, onShareClick, onDownloadClick, onDeleteClick) {
+export default function buildColumns(fileManager, currentAction, onShareClick, onDownloadClick, onDeleteClick, onPlayVideoClick) {
     return [
         // { field: 'id', headerName: 'ID', width: 90 },
         {
@@ -122,6 +122,28 @@ export default function buildColumns(fileManager, currentAction, onShareClick, o
                     </Button>
                 </div>
             ),
+        },
+        {
+            field: 'play',
+            headerName: 'Play',
+            width: 85,
+            renderCell: (params) => {
+                const isVideo = params.row.name && /\.(mp4|avi|mkv|mov|wmv|flv|webm|m4v|3gp)$/i.test(params.row.name);
+                return (
+                    <div>
+                        {isVideo && (
+                            <Button
+                                disabled={currentAction !== ""}
+                                variant="text"
+                                color="primary"
+                                onClick={() => onPlayVideoClick(params)}
+                            >
+                                Play
+                            </Button>
+                        )}
+                    </div>
+                );
+            },
         }
     ];
 }

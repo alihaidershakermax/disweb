@@ -1,0 +1,51 @@
+
+.video-container {
+    position: relative;
+    background: #000;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.progress-bar-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.time-display {
+    position: absolute;
+    right: 0;
+    top: -25px;
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-quality-menu {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background: rgba(0,0,0,0.9);
+    border-radius: 5px;
+    padding: 10px;
+}

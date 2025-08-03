@@ -61,7 +61,15 @@ function SearchBar({ fileManager, files = true, directories = true, rows,
             parts.splice(index, 1);
             if (advanced) {
                 const type = part.split(":")[1];
-                if (byExtension[type]) {
+                if (type === "video" || type === "videos") {
+                    // Search for common video extensions
+                    const videoExtensions = ["mp4", "avi", "mkv", "mov", "wmv", "flv", "webm", "m4v", "3gp"];
+                    videoExtensions.forEach(ext => {
+                        if (byExtension[ext]) {
+                            advancedOptions.push(...byExtension[ext]);
+                        }
+                    });
+                } else if (byExtension[type]) {
                     advancedOptions.push(...byExtension[type]);
                 }
             }

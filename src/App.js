@@ -1,7 +1,6 @@
-/*global chrome*/
 import React, { useEffect, useState } from 'react';
 
-import { Button, CssBaseline, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, LinearProgress, linearProgressClasses, Snackbar, Tooltip, Typography } from '@mui/material';
+import { CssBaseline, IconButton, LinearProgress, linearProgressClasses, Snackbar, Tooltip, Typography } from '@mui/material';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import { DataGrid, GridCloseIcon } from '@mui/x-data-grid';
@@ -15,6 +14,7 @@ import NavigationBar from './NavigationBar';
 import PathParts from './PathParts';
 import SearchBar from './SearchBar';
 import ThemeSwitch from './ThemeSwitch';
+import VideoPlayer from './VideoPlayer';
 import pako from 'pako'
 import ExtensionDialog from './ExtensionDialog.js';
 
@@ -60,6 +60,9 @@ function App() {
     const [currentAction, setCurrentAction] = useState("");
     const [showProgress, setShowProgress] = useState(false);
     const [progressValue, setProgressValue] = useState(-1);
+    
+    const [showVideoPlayer, setShowVideoPlayer] = useState(false);
+    const [currentVideo, setCurrentVideo] = useState({ url: '', name: '' });
 
     useEffect(() => {
         const webhookUrl = localStorage.getItem("webhookUrl");
@@ -128,8 +131,7 @@ function App() {
 
     const showDirectory = async (path) => {
         setPath(path);
-        const parent = await fileManager.getParent(path);
-        // setParent(parent ? parent.path : null);
+        await fileManager.getParent(path);
         setRows(Object.values(fileManager.getChildren(path)));
     }
     
@@ -278,6 +280,23 @@ function App() {
         }
     }
 
+    const onPlayVideoClick = async (params) => {
+        try {
+            const attachmentUrls = await fileManager.getAttachmentUrls(params.row.path);
+            if (attachmentUrls && attachmentUrls.length > 0) {
+                setCurrentVideo({
+                    url: attachmentUrls[0], // Use first attachment URL
+                    name: params.row.name
+                });
+                setShowVideoPlayer(true);
+            } else {
+                alert('Video URL not available');
+            }
+        } catch (e) {
+            alert(`Failed to play video: ${e}`);
+        }
+    }
+
 
     const showSearchResults = (value = null) => {
         if (value === null) {
@@ -333,7 +352,7 @@ function App() {
                                 <SearchBar fileManager={fileManager} files={true} directories={true} advanced={true} rows={rows}
                                     search={true} onOptionsChanged={(options) => { setSearchOptions(options) }}
                                     onChange={(value) => { setSearchValue(value) }} onSelect={showSearchResults} onEnter={showSearchResults}
-                                    placeholder="Search for files, directories, extensions (e.g. ext:png)" />
+                                    placeholder="Search for files, directories, extensions (e.g. ext:png, ext:video)" />
                             </div>
                         </Tooltip>
                     </div>
@@ -362,7 +381,7 @@ function App() {
                             }}
                             style={{ border: "0px" }}
                             rows={rows}
-                            columns={buildColumns(fileManager, currentAction, onShareFileClick, onDownloadFileClick, onDeleteFileClick)}
+                            columns={buildColumns(fileManager, currentAction, onShareFileClick, onDownloadFileClick, onDeleteFileClick, onPlayVideoClick)}
                             hideFooter={true}
                             checkboxSelection
                             disableSelectionOnClick
@@ -376,6 +395,13 @@ function App() {
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
                 <ThemeSwitch theme={theme} setTheme={setTheme} />
             </div>
+            
+            <VideoPlayer 
+                show={showVideoPlayer}
+                videoUrl={currentVideo.url}
+                videoName={currentVideo.name}
+                onClose={() => setShowVideoPlayer(false)}
+            />
         </div>
     );
 }
